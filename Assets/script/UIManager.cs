@@ -18,6 +18,9 @@ public class UIManager : MonoBehaviour
     private TMP_Text messageText;
 
     [SerializeField]
+    private TMP_Text aimText;
+
+    [SerializeField]
     private GameObject gameOverPanel;
 
     [SerializeField]
@@ -58,6 +61,12 @@ public class UIManager : MonoBehaviour
     {
         if (frameText != null)
             frameText.text = "Frame " + frame + "/" + totalFrame + "   Roll " + roll;
+    }
+
+    public void ShowAim(float angle)
+    {
+        if (aimText != null)
+            aimText.text = "Aim: " + Mathf.RoundToInt(angle) + "°";
     }
 
     public void ShowMessage(string message)
