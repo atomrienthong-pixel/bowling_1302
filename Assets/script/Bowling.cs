@@ -13,6 +13,12 @@ public class Bowling : MonoBehaviour
     private float aimLimit = 20f;
 
     [SerializeField]
+    private float moveSpeed = 6f;
+
+    [SerializeField]
+    private float moveLimit = 2.3f;
+
+    [SerializeField]
     private float stopSpeed = 0.1f;
 
     [SerializeField]
@@ -44,14 +50,42 @@ public class Bowling : MonoBehaviour
             return;
         }
 
+        HoldStill();
         Aim();
+        Move();
         ShowGuide(true);
 
         if (Keyboard.current != null && Keyboard.current.spaceKey.wasPressedThisFrame)
             ShootBall();
     }
 
+    private void HoldStill()
+    {
+        rb.linearVelocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+    }
+
     private void Aim()
+    {
+        if (Keyboard.current == null)
+            return;
+
+        float move = 0f;
+
+        if (Keyboard.current.qKey.isPressed)
+            move -= 1f;
+
+        if (Keyboard.current.eKey.isPressed)
+            move += 1f;
+
+        if (move == 0f)
+            return;
+
+        aimAngle = Mathf.Clamp(aimAngle + move * aimSpeed * Time.deltaTime, -aimLimit, aimLimit);
+        ShowAim();
+    }
+
+    private void Move()
     {
         if (Keyboard.current == null)
             return;
@@ -67,14 +101,15 @@ public class Bowling : MonoBehaviour
         if (move == 0f)
             return;
 
-        aimAngle = Mathf.Clamp(aimAngle + move * aimSpeed * Time.deltaTime, -aimLimit, aimLimit);
+        float x = Mathf.Clamp(transform.position.x + move * moveSpeed * Time.deltaTime, -moveLimit, moveLimit);
+        transform.position = new Vector3(x, transform.position.y, transform.position.z);
         ShowAim();
     }
 
     private void ShowAim()
     {
         if (UIManager.instance != null)
-            UIManager.instance.ShowAim(aimAngle);
+            UIManager.instance.ShowAim(aimAngle, transform.position.x);
     }
 
     private void ShowGuide(bool show)

@@ -63,10 +63,10 @@ public class UIManager : MonoBehaviour
             frameText.text = "Frame " + frame + "/" + totalFrame + "   Roll " + roll;
     }
 
-    public void ShowAim(float angle)
+    public void ShowAim(float angle, float offset)
     {
         if (aimText != null)
-            aimText.text = "Aim: " + Mathf.RoundToInt(angle) + "°";
+            aimText.text = "Aim " + Mathf.RoundToInt(angle) + "°    Pos " + offset.ToString("F1");
     }
 
     public void ShowMessage(string message)
