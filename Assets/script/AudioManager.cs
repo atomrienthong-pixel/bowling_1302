@@ -13,8 +13,6 @@ public class AudioManager : MonoBehaviour
     [SerializeField]
     private AudioClip musicClip;
 
-    [SerializeField]
-    private AudioClip buttonClip;
 
     [SerializeField]
     private AudioClip rollClip;
@@ -25,8 +23,6 @@ public class AudioManager : MonoBehaviour
     [SerializeField]
     private AudioClip strikeClip;
 
-    [SerializeField]
-    private AudioClip gameOverClip;
 
     private float musicVolume = 0.7f;
     private float sfxVolume = 1f;
@@ -85,10 +81,6 @@ public class AudioManager : MonoBehaviour
         sfxSource.PlayOneShot(clip, sfxVolume);
     }
 
-    public void PlayButton()
-    {
-        PlaySfx(buttonClip);
-    }
 
     public void PlayRoll()
     {
@@ -103,10 +95,5 @@ public class AudioManager : MonoBehaviour
     public void PlayStrike()
     {
         PlaySfx(strikeClip);
-    }
-
-    public void PlayGameOver()
-    {
-        PlaySfx(gameOverClip);
     }
 }

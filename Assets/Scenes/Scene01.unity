@@ -3159,7 +3159,7 @@ Transform:
   m_GameObject: {fileID: 950000000}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5, z: 31}
+  m_LocalPosition: {x: 0, y: 1.5, z: 30.4}
   m_LocalScale: {x: 10, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3558,12 +3558,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicSource: {fileID: 974000003}
   sfxSource: {fileID: 974000004}
-  musicClip: {fileID: 0}
-  buttonClip: {fileID: 0}
-  rollClip: {fileID: 0}
-  pinClip: {fileID: 0}
-  strikeClip: {fileID: 0}
-  gameOverClip: {fileID: 0}
+  musicClip: {fileID: 8300000, guid: 594bd661b83107643a2cae0dbab1afa7, type: 3}
+  rollClip: {fileID: 8300000, guid: 8ec93984f6a17fb46a09b1613f6f63d2, type: 3}
+  pinClip: {fileID: 8300000, guid: 1a3a4019f6759aa4b8ab89f274a0221c, type: 3}
+  strikeClip: {fileID: 8300000, guid: 2ed8b623fe3370b4e8a361680254486d, type: 3}
 --- !u!1 &974000006
 GameObject:
   m_ObjectHideFlags: 0

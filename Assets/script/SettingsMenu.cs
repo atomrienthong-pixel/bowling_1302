@@ -132,8 +132,5 @@ public class SettingsMenu : MonoBehaviour
                 Time.timeScale = savedScale;
             }
         }
-
-        if (value && AudioManager.instance != null)
-            AudioManager.instance.PlayButton();
     }
 }

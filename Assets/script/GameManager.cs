@@ -198,9 +198,6 @@ public class GameManager : MonoBehaviour
     {
         gameOver = true;
 
-        if (AudioManager.instance != null)
-            AudioManager.instance.PlayGameOver();
-
         if (UIManager.instance != null)
             UIManager.instance.ShowGameOver("Game Over\nScore: " + score);
     }
