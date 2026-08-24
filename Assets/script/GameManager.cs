@@ -117,6 +117,10 @@ public class GameManager : MonoBehaviour
         if (roll == 1 && knocked == pins.Length)
         {
             score += strikeBonus;
+
+            if (AudioManager.instance != null)
+                AudioManager.instance.PlayStrike();
+
             ShowMessage("Strike! +" + (gain + strikeBonus));
             NextFrame();
         }
@@ -193,6 +197,9 @@ public class GameManager : MonoBehaviour
     private void EndGame()
     {
         gameOver = true;
+
+        if (AudioManager.instance != null)
+            AudioManager.instance.PlayGameOver();
 
         if (UIManager.instance != null)
             UIManager.instance.ShowGameOver("Game Over\nScore: " + score);

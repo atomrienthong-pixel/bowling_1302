@@ -136,6 +136,9 @@ public class Bowling : MonoBehaviour
         rb.AddForce(AimDir * forcePower, ForceMode.VelocityChange);
         ShowGuide(false);
 
+        if (AudioManager.instance != null)
+            AudioManager.instance.PlayRoll();
+
         if (GameManager.instance != null)
             GameManager.instance.StartRoll();
     }

@@ -14,6 +14,7 @@ public class Pin : MonoBehaviour
     private Rigidbody rb;
     private Vector3 startPosition;
     private Quaternion startRotation;
+    private bool hitSoundDone;
 
     public bool IsDown
     {
@@ -47,6 +48,17 @@ public class Pin : MonoBehaviour
         startRotation = transform.rotation;
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (hitSoundDone || collision.relativeVelocity.magnitude < 2f)
+            return;
+
+        hitSoundDone = true;
+
+        if (AudioManager.instance != null)
+            AudioManager.instance.PlayPin();
+    }
+
     public void Stop()
     {
         rb.linearVelocity = Vector3.zero;
@@ -56,6 +68,7 @@ public class Pin : MonoBehaviour
     public void ResetPin()
     {
         gameObject.SetActive(true);
+        hitSoundDone = false;
         Stop();
         transform.SetPositionAndRotation(startPosition, startRotation);
     }
