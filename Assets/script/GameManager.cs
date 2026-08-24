@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     private float minRollTime = 1.5f;
 
     [SerializeField]
-    private float maxRollTime = 8f;
+    private float maxRollTime = 11f;
 
     private Pin[] pins;
     private int score;

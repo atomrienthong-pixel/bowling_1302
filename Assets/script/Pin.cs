@@ -6,7 +6,7 @@ public class Pin : MonoBehaviour
     private float downAngle = 45f;
 
     [SerializeField]
-    private float minHeight = 1f;
+    private float minHeight = 1.2f;
 
     [SerializeField]
     private float stopSpeed = 0.1f;

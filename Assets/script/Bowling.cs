@@ -4,19 +4,19 @@ using UnityEngine.InputSystem;
 public class Bowling : MonoBehaviour
 {
     [SerializeField]
-    private float forcePower = 20f;
+    private float forcePower = 34f;
 
     [SerializeField]
-    private float aimSpeed = 25f;
+    private float aimSpeed = 6f;
 
     [SerializeField]
-    private float aimLimit = 20f;
+    private float aimLimit = 4f;
 
     [SerializeField]
     private float moveSpeed = 6f;
 
     [SerializeField]
-    private float moveLimit = 2.3f;
+    private float moveLimit = 2.2f;
 
     [SerializeField]
     private float stopSpeed = 0.1f;
@@ -25,7 +25,7 @@ public class Bowling : MonoBehaviour
     private Transform aimGuide;
 
     [SerializeField]
-    private float guideDistance = 4f;
+    private float guideDistance = 8f;
 
     private Rigidbody rb;
     private Vector3 startPosition;
@@ -133,7 +133,7 @@ public class Bowling : MonoBehaviour
         if (GameManager.instance != null && !GameManager.instance.CanShoot)
             return;
 
-        rb.AddForce(AimDir * forcePower, ForceMode.Impulse);
+        rb.AddForce(AimDir * forcePower, ForceMode.VelocityChange);
         ShowGuide(false);
 
         if (GameManager.instance != null)
